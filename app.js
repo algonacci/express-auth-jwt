@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const app = express();
 
 const rootRouter = require("./routes/root/root.router");
+const authRouter = require("./routes/auth/auth.router");
 
 app.use(
   cors({
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", rootRouter);
+app.use("/auth", authRouter);
 
 app.use(notFound);
 
